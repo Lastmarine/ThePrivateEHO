@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("GFX/Newbackground3.png") no-repeat center center fixed;
+  background: url("GFX/NewBackground3.png") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
   color: #000;
@@ -290,6 +290,7 @@ h3 {
   }
 
 }
+
 
 
 
