@@ -322,7 +322,6 @@ h3 {
   }
 
 /* Image row - mobile 2x2 grid */
-@media (max-width: 768px) {
   .image-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);  /* 2 columns */
