@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;  /* prevents horizontal scrolling */
+}
+
 /* Global */
 body {
   margin: 0;
@@ -16,6 +21,7 @@ body {
   z-index: 1;
 }
 
+/* Title Image */
 .title-image {
   display: flex;
   justify-content: center;
@@ -24,8 +30,10 @@ body {
 }
 
 .title-image img {
-  max-width: 100%;
-  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;      /* desktop: normal width */
+  height: auto;          /* maintain aspect ratio */
 }
 
 /* Vertical Lines */
@@ -192,24 +200,24 @@ h2 {
   width: 50px;
 }
 
-    .bio-box, .contact-box {
-      background-color: rgba(255, 255, 255, 0.7);
-      color: #000;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: left;
-      font-size: 20px;
-    }
+.bio-box, .contact-box {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 20px;
+}
 
-    .bio-box ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      line-height: 1.6;
-    }
+.bio-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
 
-    .bio-box li {
-      margin-bottom: 5px;
-    }
+.bio-box li {
+  margin-bottom: 5px;
+}
 
 h3 {
   font-family: 'Georgia', fallback-font;
@@ -276,25 +284,61 @@ h3 {
     gap: 20px;
   }
 
-  .image-row {
-    flex-direction: column;
+/* Mobile scaling for title image */
+@media (max-width: 768px) {
+  .title-image img {
+    width: 160vw;        /* 50% wider than viewport */
+    height: auto;        /* maintain aspect ratio */
+    object-fit: contain; /* prevent distortion */
+    max-width: none;     /* allow scaling beyond container */
   }
 
-  .image-gap {
-    display: none;
+  /* NEW: stack text above icons on mobile */
+  .icon-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
   }
+
+  .icon-text-left,
+  .icon-text-right {
+    margin: 0;          /* reset side margins */
+    margin-bottom: 5px; /* small space between text and icon */
+  }
+
+/* Image Row - mobile 2x2 layout */
+.image-row {
+  flex-direction: row;      /* keep row direction */
+  flex-wrap: wrap;          /* allow wrapping */
+  justify-content: center;  /* center rows */
+  gap: 10px;                /* optional smaller spacing on mobile */
+}
+
+.image-row img {
+  width: calc(50% - 20px);  /* half the container width minus margins */
+  height: auto;              /* maintain aspect ratio */
+  max-width: 150px;          /* optional limit so they don’t get huge on larger mobile screens */
+  margin: 5px;               /* smaller margin */
+}
 
   .vertical-line.left,
   .vertical-line.right {
     display: none;
   }
 
+  /* Fix image pair on mobile */
+  .image-pair-wrapper {
+    flex-direction: column;   /* stack vertically */
+    align-items: center;      /* keep centered */
+    gap: 20px;                /* smaller gap between images */
+    margin: 30px auto;        /* reduce margins for mobile */
+  }
+
+  .image-left img,
+  .image-right img {
+    max-width: 80%;           /* responsive scaling */
+    height: auto;             /* keep aspect ratio */
+  }
 }
-
-
-
-
-
-
-
 
