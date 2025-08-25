@@ -1,6 +1,10 @@
 html, body {
   width: 100%;
-  overflow-x: hidden;  /* prevents horizontal scrolling */
+  height: 100%;
+  overflow-x: hidden;  
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  background-color: #000;   /* fallback for transparency */
 }
 
 /* Global */
