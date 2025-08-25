@@ -279,21 +279,13 @@ h3 {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+  /* Contact icons stacked */
   .contact-icons {
     flex-direction: column;
     gap: 20px;
   }
 
-/* Mobile scaling for title image */
-@media (max-width: 768px) {
-  .title-image img {
-    width: 160vw;        /* 50% wider than viewport */
-    height: auto;        /* maintain aspect ratio */
-    object-fit: contain; /* prevent distortion */
-    max-width: none;     /* allow scaling beyond container */
-  }
-
-  /* NEW: stack text above icons on mobile */
   .icon-wrapper {
     flex-direction: column;
     align-items: center;
@@ -303,42 +295,52 @@ h3 {
 
   .icon-text-left,
   .icon-text-right {
-    margin: 0;          /* reset side margins */
-    margin-bottom: 5px; /* small space between text and icon */
+    margin: 0;
+    margin-bottom: 5px;
   }
 
-/* Image Row - mobile 2x2 layout */
-.image-row {
-  flex-direction: row;      /* keep row direction */
-  flex-wrap: wrap;          /* allow wrapping */
-  justify-content: center;  /* center rows */
-  gap: 10px;                /* optional smaller spacing on mobile */
-}
+  /* Title image scaling */
+  .title-image img {
+    width: 160vw;        /* 50% wider than viewport */
+    height: auto;
+    object-fit: contain;
+    max-width: none;
+  }
 
-.image-row img {
-  width: calc(50% - 20px);  /* half the container width minus margins */
-  height: auto;              /* maintain aspect ratio */
-  max-width: 150px;          /* optional limit so they don’t get huge on larger mobile screens */
-  margin: 5px;               /* smaller margin */
-}
+  /* Image pair stacked */
+  .image-pair-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 30px auto;
+  }
 
+  .image-left img,
+  .image-right img {
+    max-width: 80%;
+    height: auto;
+  }
+
+/* Image row - mobile 2x2 grid */
+@media (max-width: 768px) {
+  .image-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+    gap: 10px;
+    justify-items: center;                   /* center each image */
+  }
+
+  .image-row img {
+    width: 140px;     /* fixed width for consistency */
+    height: auto;
+    object-fit: cover;
+    border: 5px solid white;
+  }
+
+  /* Hide vertical lines */
   .vertical-line.left,
   .vertical-line.right {
     display: none;
   }
 
-  /* Fix image pair on mobile */
-  .image-pair-wrapper {
-    flex-direction: column;   /* stack vertically */
-    align-items: center;      /* keep centered */
-    gap: 20px;                /* smaller gap between images */
-    margin: 30px auto;        /* reduce margins for mobile */
-  }
-
-  .image-left img,
-  .image-right img {
-    max-width: 80%;           /* responsive scaling */
-    height: auto;             /* keep aspect ratio */
-  }
 }
-
